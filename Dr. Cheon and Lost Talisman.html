@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JW Player 7 Example with Two Subtitles</title>
+    <!-- JW Player Library -->
+    <script src="//jwpsrv.com/library/O4mPlqeTEeK_viIACpYGxA.js"></script>
+</head>
+<body>
+    <div id="player"></div>
+
+    <script>
+        jwplayer("player").setup({
+            file: "https://cdn1.kingschat.online/uploads/media/65b2556b0b26d7ce5b1a5fef/UGRGUmJEUGRTdWNEZkN6c0VlTGpzZz09/Dr_Cheon_And_Lost_Talisman_2023.mp4",
+            image: "thumbnail-image.jpg",
+            tracks: [
+                {
+                    file: "https://res.cloudinary.com/dn6dgbjj5/raw/upload/v1707953609/Dr.%20Cheon%20and%20Lost%20Talisman/English_Khmer_rwew1a.srt",
+                    kind: "captions",
+                    label: "Khmer",
+                    "default": true
+                },
+                {
+                    file: "https://res.cloudinary.com/dn6dgbjj5/raw/upload/v1707953562/Dr.%20Cheon%20and%20Lost%20Talisman/English_m969rp.srt",
+                    kind: "captions",
+                    label: "English"
+                }
+            ],
+            autostart: false,
+            width: "100%",
+            aspectratio: "16:9"
+        });
+    </script>
+</body>
+</html>
