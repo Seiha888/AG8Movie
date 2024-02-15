@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JW Player 7 Example with Two Subtitles</title>
+    <!-- JW Player Library -->
+    <script src="//jwpsrv.com/library/O4mPlqeTEeK_viIACpYGxA.js"></script>
+</head>
+<body>
+    <div id="player"></div>
+
+    <script>
+        jwplayer("player").setup({
+            file: "https://www.udrop.com/Lwpv/Cyclops.2008.mp4?download_token=187197304e5ac5a32e07a36d87ebb44cb1e1e3480d58a1d7832ec5a7ffd23d2a",
+            image: "thumbnail-image.jpg",
+            tracks: [
+                {
+                    file: "https://res.cloudinary.com/dn6dgbjj5/raw/upload/v1707956386/Cyclops/Cyclops.2008.720p.BluRay.x264.AAC-_Khmer_umdfzp.srt",
+                    kind: "captions",
+                    label: "Khmer",
+                    "default": true
+                },
+                {
+                    file: "https://res.cloudinary.com/dn6dgbjj5/raw/upload/v1707956386/Cyclops/Cyclops.2008.720p.BluRay.x264.AAC-_Khmer_umdfzp.srt",
+                    kind: "captions",
+                    label: "English"
+                }
+            ],
+            autostart: false,
+            width: "100%",
+            aspectratio: "16:9"
+        });
+    </script>
+</body>
+</html>
