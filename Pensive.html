@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JW Player 7 Example with Two Subtitles</title>
+    <!-- JW Player Library -->
+    <script src="//jwpsrv.com/library/O4mPlqeTEeK_viIACpYGxA.js"></script>
+</head>
+<body>
+    <div id="player"></div>
+
+    <script>
+        jwplayer("player").setup({
+            file: "https://hs-vod.nimo.tv/269f5de1vodsgp1256238590/4175b1c63270835014798910950/MyM4SEksaawA.mp4?hyvid=1787618734315536924&hyauid=0&hyroomid=0&hyratio=2000&hyscence=6&appid=81&domainid=14&srckey=ODFfMTRfMTc4NzYxODczNDMxNTUzNjkyNA%3D%3D",
+            image: "thumbnail-image.jpg",
+            tracks: [
+                {
+                    file: "https://res.cloudinary.com/dn6dgbjj5/raw/upload/v1704807970/Awoken/Pensive_Khmer_ielwb0.srt",
+                    kind: "captions",
+                    label: "Khmer",
+                    "default": true
+                },
+                {
+                    file: "https://res.cloudinary.com/dn6dgbjj5/raw/upload/v1704807996/Awoken/Pensive_English_py0fcn.srt",
+                    kind: "captions",
+                    label: "English"
+                }
+            ],
+            autostart: false,
+            width: "100%",
+            aspectratio: "16:9"
+        });
+    </script>
+</body>
+</html>
