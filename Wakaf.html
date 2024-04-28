@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bongseiha.com</title>
+  <style>
+    img {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      width: 100px;
+      height: auto;
+      opacity: 0.6;
+      z-index: 1;
+    }
+    #player {
+      position: absolute;
+      width: 100% !important;
+      height: 100% !important;
+    }
+    .jwplayer .jw-rightclick .jw-rightclick-list {
+      border-radius: 1px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: none;
+    }
+  </style>
+  <link rel="stylesheet" href="https://raw.githack.com/Seiha888/JWPlayer/main/Skin%20Netflix%20v2.0.5.css">
+</head>
+<body>
+  <!-- JW Player Logo -->
+  <img src="https://i.imgur.com/umTyaSP.png" alt="AG8tv">
+
+  <!-- JW Player Container -->
+  <div id="player"></div>
+
+  <!-- JW Player Library -->
+  <script src="https://raw.githack.com/Killer-GR/PlayerCode/main/DooPlay%20Licenkey.js"></script>
+
+  <script>
+    // Initialize JW Player
+    const playerInstance = jwplayer("player").setup({
+      controls: true,
+      sharing: true,
+      displaytitle: false,
+      displaydescription: true,
+      abouttext: "Buy Me a Coffee",
+      aboutlink: "@mr_ron168",
+      skin: {
+        name: "netflix"
+      },
+      captions: {
+        color: "#FFF",
+        fontSize: 16,
+        backgroundOpacity: 100,
+        edgeStyle: "uniform"
+      },
+      playlist: [
+        {
+          title: "W88MOVIE.net",
+          description: "W88MOVIE.net",
+          image: "",
+          sources: [
+            {
+              file: "https://d26g9edzsm67nl.cloudfront.net/stagoutput/1714094713-662b0279aee38.mp4",
+              label: "Auto",
+              default: true
+            },
+            {
+              file: "",
+              label: "4k"
+            },
+            {
+              file: "https://d26g9edzsm67nl.cloudfront.net/stagoutput/1714094713-662b0279aee38.mp4?dl=0",
+              label: "1080p"
+            },
+            {
+              file: "https://d26g9edzsm67nl.cloudfront.net/stagoutput/1714094713-662b0279aee38.mp4",
+              label: "720p"
+            },
+            {
+              file: "https://d26g9edzsm67nl.cloudfront.net/stagoutput/1714094713-662b0279aee38.mp4",
+              label: "480p"
+            }
+          ],
+          captions: [
+            {
+              file: "https://res.cloudinary.com/do6y36zmq/raw/upload/v1714095626/khmer%20sub/EN_Wakaf.2023.AOD.WEB-DL.km_caszzz.srt",
+              label: "ខ្មែរ",
+              kind: "captions",
+              default: true
+            },
+            {
+              file: "https://res.cloudinary.com/do6y36zmq/raw/upload/v1714095626/khmer%20sub/EN_Wakaf.2023.AOD.WEB-DL.km_caszzz.srt",
+              label: "English",
+              kind: "captions"
+            }
+          ]
+        }
+      ],
+      advertising: {
+        client: "vast",
+      }
+    });
+
+    // Function to handle download button click
+    function buttonClickAction() {
+      const playlistItem = playerInstance.getPlaylistItem();
+      const anchor = document.createElement("a");
+      const fileUrl = playlistItem.file;
+      anchor.setAttribute("href", fileUrl);
+      const downloadName = playlistItem.file.split("/").pop();
+      anchor.setAttribute("download", downloadName);
+      anchor.style.display = "none";
+      document.body.appendChild(anchor);
+      anchor.click();
+      document.body.removeChild(anchor);
+    }
+
+    // Event listener for player ready
+    playerInstance.on("ready", function () {
+      // Add forward button
+      const forwardContainer = document.createElement("div");
+      forwardContainer.classList.add("jw-icon", "jw-button", "jw-display-icon-forward");
+      forwardContainer.onclick = () => {
+        playerInstance.seek(playerInstance.getPosition() + 10);
+      };
+      const forwardIcon = document.createElement("div");
+      forwardIcon.classList.add("jw-icon", "jw-icon-inline", "jw-button-color", "jw-reset", "jw-icon-forward");
+      forwardContainer.appendChild(forwardIcon);
+      const controlBar = document.querySelector(".jw-controlbar");
+      controlBar.appendChild(forwardContainer);
+
+      // Hide next button
+      const nextButton = document.querySelector(".jw-display-icon-next");
+      if (nextButton) {
+        nextButton.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
